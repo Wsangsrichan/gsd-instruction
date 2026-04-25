@@ -8,5 +8,5 @@ phase-based workflow ที่เชื่อม AI agents ให้ทำงา
 [![GitHub](https://img.shields.io/badge/GitHub-Wsangsrichan%2Fgsd--instruction-0a192f?logo=github&logoColor=22d3ee&labelColor=060f1d&color=22d3ee)](https://github.com/Wsangsrichan/gsd-instruction)
 [![GSD](https://img.shields.io/badge/GSD-get--shit--done-0a192f?labelColor=060f1d&color=2dd4bf)](https://github.com/gsd-build/get-shit-done)
 
-[Get Started](#gsd-instruction)
+[Get Started](/)
 [คำสั่งทั้งหมด](docs/commands.md)
