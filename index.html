@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSD Instruction — Marine Team</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <style>
+    :root {
+      --navy-950: #060f1d;
+      --navy-900: #0a1628;
+      --navy-800: #0f2040;
+      --navy-700: #162b54;
+      --cyan-400: #22d3ee;
+      --cyan-300: #67e8f9;
+      --teal-400: #2dd4bf;
+      --text-primary: #e2e8f0;
+      --text-muted: #94a3b8;
+      --border: rgba(34,211,238,0.12);
+      --sidebar-width: 280px;
+      --theme-color: #22d3ee;
+      --base-font-family: 'Inter', -apple-system, sans-serif;
+      --base-font-size: 15px;
+      --base-line-height: 1.7;
+      --mono-font: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      background: var(--navy-950);
+      color: var(--text-primary);
+      font-family: var(--base-font-family);
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      background: var(--navy-900) !important;
+      border-right: 1px solid var(--border) !important;
+      padding-top: 0 !important;
+    }
+
+    .sidebar > h1 {
+      background: linear-gradient(135deg, var(--navy-950), var(--navy-800));
+      border-bottom: 1px solid var(--border);
+      padding: 20px 20px 16px;
+      margin: 0;
+      font-family: var(--mono-font);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--cyan-400);
+      letter-spacing: 0.05em;
+    }
+
+    .sidebar > h1 a { color: var(--cyan-400) !important; text-decoration: none; }
+
+    .sidebar-nav li a {
+      color: var(--text-muted) !important;
+      font-size: 13.5px;
+      padding: 5px 20px;
+      display: block;
+      transition: color 0.15s, background 0.15s;
+      border-left: 2px solid transparent;
+    }
+
+    .sidebar-nav li a:hover { color: var(--text-primary) !important; background: rgba(34,211,238,0.04); }
+    .sidebar-nav li.active > a {
+      color: var(--cyan-400) !important;
+      border-left-color: var(--cyan-400);
+      background: rgba(34,211,238,0.07);
+      box-shadow: inset 2px 0 8px rgba(34,211,238,0.1);
+    }
+
+    /* ── Content ── */
+    .content {
+      background: var(--navy-950) !important;
+      padding-top: 0 !important;
+    }
+
+    .markdown-section {
+      max-width: 860px;
+      color: var(--text-primary) !important;
+      padding: 40px 48px;
+    }
+
+    .markdown-section h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(to right, var(--cyan-400), var(--teal-400), var(--cyan-300));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .markdown-section h2 {
+      color: var(--cyan-400);
+      font-size: 1.25rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+      margin-top: 2.5rem;
+    }
+
+    .markdown-section h3 { color: var(--teal-400); font-size: 1rem; font-weight: 600; }
+
+    .markdown-section p { color: var(--text-primary); }
+
+    .markdown-section a { color: var(--cyan-400) !important; text-decoration: none; border-bottom: 1px solid rgba(34,211,238,0.3); }
+    .markdown-section a:hover { border-bottom-color: var(--cyan-400); }
+
+    /* ── Code ── */
+    .markdown-section pre {
+      background: var(--navy-800) !important;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .markdown-section code {
+      font-family: var(--mono-font);
+      font-size: 13px;
+      background: rgba(34,211,238,0.08);
+      color: var(--cyan-300);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .markdown-section pre code {
+      background: none;
+      color: var(--text-primary);
+      padding: 0;
+    }
+
+    /* ── Tables ── */
+    .markdown-section table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1.5rem 0;
+    }
+
+    .markdown-section th {
+      background: var(--navy-800);
+      color: var(--cyan-400);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      text-align: left;
+    }
+
+    .markdown-section td {
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      color: var(--text-primary);
+      font-size: 14px;
+    }
+
+    .markdown-section tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .markdown-section tr:hover td { background: rgba(34,211,238,0.04); }
+
+    /* ── Blockquote ── */
+    .markdown-section blockquote {
+      border-left: 3px solid var(--cyan-400);
+      background: rgba(34,211,238,0.05);
+      padding: 12px 20px;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+      color: var(--text-muted) !important;
+    }
+
+    .markdown-section blockquote p { color: var(--text-muted) !important; margin: 0; }
+
+    /* ── Cover Page ── */
+    section.cover {
+      background: linear-gradient(135deg, var(--navy-950) 0%, var(--navy-900) 50%, #0c2340 100%) !important;
+      position: relative;
+      overflow: hidden;
+    }
+
+    section.cover::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(34,211,238,0.03) 1px, transparent 0),
+        linear-gradient(90deg, rgba(34,211,238,0.03) 1px, transparent 0);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    section.cover::after {
+      content: '';
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34,211,238,0.06) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+      pointer-events: none;
+    }
+
+    section.cover .cover-main {
+      position: relative;
+      z-index: 1;
+    }
+
+    section.cover h1 {
+      font-size: 3.5rem !important;
+      font-weight: 700;
+      color: transparent !important;
+    }
+
+    section.cover h1 em {
+      font-style: normal;
+      background: linear-gradient(to right, var(--cyan-400), var(--teal-400), var(--cyan-300));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    section.cover p { color: var(--text-muted) !important; font-size: 1.1rem; }
+    section.cover p.cover-main { color: var(--text-primary) !important; }
+
+    section.cover .cover-main > p:last-child a {
+      background: var(--cyan-400) !important;
+      color: var(--navy-950) !important;
+      border: none !important;
+      border-radius: 8px;
+      padding: 12px 28px;
+      font-weight: 600;
+      font-size: 15px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    section.cover .cover-main > p:last-child a:hover { opacity: 0.85; }
+    section.cover .cover-main > p:last-child a:last-child {
+      background: transparent !important;
+      color: var(--cyan-400) !important;
+      border: 1px solid var(--border) !important;
+    }
+
+    /* ── Navbar ── */
+    .app-nav { background: transparent; }
+    .app-nav a { color: var(--text-muted) !important; }
+    .app-nav a:hover { color: var(--cyan-400) !important; }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy-900); }
+    ::-webkit-scrollbar-thumb { background: rgba(34,211,238,0.2); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(34,211,238,0.35); }
+
+    /* ── Tip / Note blocks ── */
+    .tip, .warn, .danger {
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin: 1.5rem 0;
+      border-left: 3px solid;
+    }
+    .tip { background: rgba(34,211,238,0.07); border-color: var(--cyan-400); }
+    .warn { background: rgba(251,191,36,0.07); border-color: #fbbf24; }
+    .danger { background: rgba(239,68,68,0.07); border-color: #ef4444; }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: '<span style="font-family:\'JetBrains Mono\',monospace;font-size:13px;color:#22d3ee;font-weight:500;letter-spacing:0.05em">&lt;GSD /&gt;</span>',
+      repo: 'https://github.com/Wsangsrichan/gsd-instruction',
+      loadSidebar: true,
+      coverpage: true,
+      onlyCover: false,
+      auto2top: true,
+      maxLevel: 3,
+      subMaxLevel: 2,
+      search: {
+        maxAge: 86400000,
+        paths: 'auto',
+        placeholder: 'ค้นหา...',
+        noData: 'ไม่พบผลลัพธ์',
+        depth: 4
+      },
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md'
+      }
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-javascript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
+</body>
+</html>
