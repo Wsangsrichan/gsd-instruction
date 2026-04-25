@@ -1,6 +1,7 @@
 - **เริ่มต้น**
   - [GSD คืออะไร](docs/what-is-gsd.md)
-  - [ติดตั้ง](docs/installation.md)
+  - [ติดตั้ง GSD](docs/installation.md)
+  - [ติดตั้ง Marine Team](docs/installation-marine.md)
   - [Core Workflow](docs/core-workflow.md)
 
 - **คำสั่ง**
