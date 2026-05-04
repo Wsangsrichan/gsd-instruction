@@ -12,5 +12,12 @@
   - [กับ marine-orchestrator](docs/use-case-marine-orchestrator.md)
   - [Full Lifecycle Example](docs/use-case-full-lifecycle.md)
 
+- **Tools**
+  - [Matt Pocock Skills](docs/tools-mattpocock.md)
+  - [SocratiCode](docs/tools-socraticode.md)
+
 - **Integration**
   - [Cheat Sheet](docs/integration-cheatsheet.md)
+
+- **Getting Started**
+  - [Full Flow](docs/use-case-getting-started.md)
